@@ -1,0 +1,26 @@
+public class Clock {
+
+    public static void main(String[] args) {
+	// initialize SenseHat object
+	SenseHat senseHat = new SenseHat();
+
+	// ctrl-c to get out
+	for(;;) {
+            // process Joystick input
+            JoystickEvent e = senseHat.waitForEvent();
+            Action action = e.getAction();
+            if (action == Action.PRESSED || action == Action.HELD) {
+                switch (e.getDirection()) {
+                    case UP:
+                        StdOut.println("UP")
+                        break;
+                    case DOWN:
+                        StdOut.println("DOWN")
+                        break;
+                    case MIDDLE:
+                        StdOut.println("MIDDLE")
+                        break;
+                }
+            }
+        }
+    }
